@@ -2,18 +2,25 @@
 
 ## 🧩 Database Configuration
 
-### Products Table Schema
+### Products Table
 
-1. Product :
+| Column      | Type     | Details                          |
+| ----------- | -------- | -------------------------------- |
+| id          | BIGINT   | Primary Key                      |
+| name        | STRING   | Product name                     |
+| price       | DECIMAL  | (10,2) formatted price           |
+| stock       | INTEGER  | Number of items in stock         |
+| status      | BOOLEAN  | 1 = Available, 0 = Not Available |
+| category_id | BIGINT   | Foreign key from categories      |
+| timestamps  | DATETIME | created_at, updated_at           |
 
-| Column     | Type     | Details                      |
-| ---------- | -------- | ---------------------------- |
-| id         | BIGINT   | Auto-increment (Primary Key) |
-| name       | STRING   | Product name                 |
-| price      | DECIMAL  | (10,2) formatted price       |
-| stock      | INTEGER  | Number of items in stock     |
-| status     | BOOLEAN  | Available (default: `true`)  |
-| timestamps | DATETIME | `created_at`, `updated_at`   |
+### Categories Table
+
+| Column     | Type     | Details                |
+| ---------- | -------- | ---------------------- |
+| id         | BIGINT   | Primary Key            |
+| name       | STRING   | Category name          |
+| timestamps | DATETIME | created_at, updated_at |
 
 ---
 
