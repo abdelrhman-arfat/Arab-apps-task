@@ -3,4 +3,4 @@
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/products', [ProductController::class, 'getProductAfterFiltering']);
+Route::middleware('throttle:api')->get('/products', [ProductController::class, 'getProductAfterFiltering']);
