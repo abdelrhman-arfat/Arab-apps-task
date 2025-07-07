@@ -1,8 +1,8 @@
-# Backend Arab Apps Task
+# 🚀 Arab Apps Backend Task
 
-## Database Setting :
+## 🧩 Database Configuration
 
-### Schema
+### Products Table Schema
 
 1. Product :
 
@@ -19,7 +19,7 @@
 
 ### Settings
 
-1. environment file :
+1.  Environment Configuration **.evn** :
 
 ```env
 DB_CONNECTION=mysql
@@ -28,6 +28,7 @@ DB_PORT=3306
 DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=your_password
+
 ```
 
 2. Migration :
@@ -41,4 +42,18 @@ php artisan migrate
 
 ```bash
 php artisan db:seed --class=ProductSeeder
+```
+
+## Caching :
+
+1. Environment Configuration **.evn** :
+
+```env
+CACHE_DRIVER = file
+```
+
+2. config/cache.php
+
+```bash
+'default' => env('CACHE_DRIVER', 'file'),
 ```

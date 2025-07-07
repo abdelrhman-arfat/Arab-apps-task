@@ -26,8 +26,24 @@ class ProductService
       $query->where('category_id', $filter['category_id']);
     }
     if (isset($filter['sort_by'])) {
-      $sortBy = explode(",", $filter['sort_by']);
-      $query->orderBy($sortBy[0], $sortBy[1]);
+      $sortSetting = explode(",", $filter['sort_by']);
+      $canSortBy = ['price', 'created_at'];
+      $canOrderBy = ['asc', 'desc'];
+
+      $sortBy = null;
+      $orderBy = null;
+
+      if (isset($sortSetting[0]) && in_array($sortSetting[0], $canSortBy)) {
+        $sortBy = $sortSetting[0];
+      }
+
+      if (isset($sortSetting[1]) && in_array($sortSetting[1], $canOrderBy)) {
+        $orderBy = $sortSetting[1];
+      }
+
+      if ($sortBy && $orderBy) {
+        $query->orderBy($sortBy, $orderBy);
+      }
     }
 
     return $query->get();
