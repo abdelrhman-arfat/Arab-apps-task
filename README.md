@@ -65,3 +65,23 @@ CACHE_DRIVER = file
 'default' => env('CACHE_DRIVER', 'file'),
 'limiter' => env('RATE_LIMITER_DRIVER', 'file')
 ```
+
+## Testing
+
+1. all products
+
+```bash
+curl "http://localhost:8000/api/products
+```
+
+2. filtering products
+
+```bash
+curl "http://localhost:8000/api/products?category_id=1&min_price=50&max_price=200&in_stock=1&sort_by=price,asc"
+```
+
+3. export pdf
+
+```bash
+curl -o products.pdf "http://localhost:8000/api/products/export?category_id=1"
+```
