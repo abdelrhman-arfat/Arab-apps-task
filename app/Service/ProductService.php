@@ -46,6 +46,6 @@ class ProductService
       }
     }
 
-    return $query->get();
+    return $query->with('category')->get();
   }
 }

@@ -56,4 +56,5 @@ CACHE_DRIVER = file
 
 ```bash
 'default' => env('CACHE_DRIVER', 'file'),
+'limiter' => env('RATE_LIMITER_DRIVER', 'file')
 ```
