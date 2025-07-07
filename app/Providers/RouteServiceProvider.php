@@ -29,7 +29,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/web.php'));
 
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(4)->by($request->user()?->id ?: $request->ip())->response(function () {
+            return Limit::perMinute(10)->by($request->user()?->id ?: $request->ip())->response(function () {
                 return response(ResponseService::error("Too many requests. Please try again later."), 429);
             });
         });
