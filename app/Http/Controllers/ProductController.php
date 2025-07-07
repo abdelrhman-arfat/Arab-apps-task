@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-
     public function getProductAfterFiltering(Request $request)
     {
         $filter = $request->all();
@@ -25,7 +24,7 @@ class ProductController extends Controller
     {
         $filter = $request->all();
         $products = ProductService::getProductsAfterFiltering($filter);
-        $pdf = Pdf::loadView('pdf.products', ['products' => $products]);
+        $pdf = Pdf::loadView('pdf.products', ['products' => $products]); // pdf.products for products.blade.php
         return $pdf->download('filtered_products.pdf');
     }
 }
